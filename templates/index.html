@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Task Chain</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div class="page">
+  <div class="rule"></div>
+
+  <div class="wrap">
+
+    <header>
+      <div>
+        <h1>Task Chain</h1>
+        <div class="subtitle">A to-do list built on a singly linked list</div>
+      </div>
+      <div class="progress">
+        <div class="progress__ring">
+          <svg viewBox="0 0 44 44">
+            <circle class="progress__track" cx="22" cy="22" r="19"></circle>
+            <circle class="progress__fill" id="progress-fill" cx="22" cy="22" r="19"></circle>
+          </svg>
+          <span class="progress__label" id="progress-label">0/0</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="add-row">
+      <input type="text" id="title-input" placeholder="What needs doing?" />
+      <select id="priority-input">
+        <option value="high">High</option>
+        <option value="medium" selected>Medium</option>
+        <option value="low">Low</option>
+      </select>
+      <button id="add-btn">Add task</button>
+    </section>
+
+    <div class="chain-hint">Drag the handle to drop a task anywhere in the chain</div>
+
+    <section class="chain" id="chain"></section>
+
+    <section class="toolbar">
+      <button id="traverse-btn" class="ghost-btn">▸ Run traversal</button>
+      <button id="clear-btn" class="ghost-btn ghost-btn--danger">Clear completed</button>
+    </section>
+
+    <section class="pointer-panel" id="pointer-panel">
+      <span class="pointer-panel__label">pointer trail</span>
+      <div class="pointer-panel__trail" id="pointer-trail">head → null</div>
+    </section>
+
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
